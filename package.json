@@ -1,49 +1,54 @@
 {
-  "name": "node-backend",
-  "author": {
-    "name": "Akshay Priyadarshi",
-    "email": "akshayp1904@outlook.com"
-  },
-  "license": "MIT",
-  "prettier": {
-    "tabWidth": 4,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "none"
-  },
-  "scripts": {
-    "watch": "yarn tsc -w",
-    "dev": "cross-env NODE_ENV=development nodemon --exec node dist/index.js",
-    "build": "yarn tsc",
-    "prebuild": "rimraf dist",
-    "start": "node dist/index.js"
-  },
-  "dependencies": {
-    "@sendgrid/mail": "^7.6.2",
-    "axios": "^0.26.1",
-    "bcrypt": "^5.0.1",
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
-    "express": "^4.17.3",
-    "express-validator": "^6.14.0",
-    "helmet": "^5.0.2",
-    "http-status-codes": "^2.2.0",
-    "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.21",
-    "mongoose": "^6.3.0",
-    "rimraf": "^3.0.2"
-  },
-  "devDependencies": {
-    "@types/bcrypt": "^5.0.0",
-    "@types/cors": "^2.8.12",
-    "@types/dotenv": "^8.2.0",
-    "@types/express": "^4.17.13",
-    "@types/jsonwebtoken": "^8.5.8",
-    "@types/lodash": "^4.14.181",
-    "@types/node": "^17.0.24",
-    "concurrently": "^7.1.0",
-    "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15",
-    "typescript": "^4.6.3"
-  }
+    "name": "node-backend",
+    "author": {
+        "name": "Akshay Priyadarshi",
+        "email": "akshayp1904@outlook.com"
+    },
+    "license": "MIT",
+    "prettier": {
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "none"
+    },
+    "engines": {
+        "node": "v16.17.1",
+        "yarn": "1.22.19"
+    },
+    "scripts": {
+        "watch": "yarn tsc -w",
+        "dev": "cross-env NODE_ENV=development nodemon --exec node dist/index.js",
+        "build": "yarn tsc",
+        "prebuild": "rimraf dist",
+        "start": "node dist/index.js",
+        "migrate": "yarn prisma migrate dev --name init"
+    },
+    "dependencies": {
+        "@sendgrid/mail": "^7.7.0",
+        "axios": "^1.1.2",
+        "bcrypt": "^5.1.0",
+        "cors": "^2.8.5",
+        "cross-env": "^7.0.3",
+        "express": "^4.18.2",
+        "express-validator": "^6.14.2",
+        "helmet": "^6.0.0",
+        "http-status-codes": "^2.2.0",
+        "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.21",
+        "mongoose": "^6.6.5",
+        "rimraf": "^3.0.2"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/cors": "^2.8.12",
+        "@types/dotenv": "^8.2.0",
+        "@types/express": "^4.17.14",
+        "@types/jsonwebtoken": "^8.5.9",
+        "@types/lodash": "^4.14.186",
+        "@types/node": "^18.8.3",
+        "concurrently": "^7.4.0",
+        "dotenv": "^16.0.3",
+        "nodemon": "^2.0.20",
+        "typescript": "^4.8.4"
+    }
 }
