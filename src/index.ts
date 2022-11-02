@@ -38,6 +38,7 @@ const main = async () => {
         })
     } catch (error) {
         console.log(error)
+        console.log('Server failed to start')
     }
 }
 
