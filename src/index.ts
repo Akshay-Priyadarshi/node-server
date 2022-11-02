@@ -36,8 +36,11 @@ const main = async () => {
         expressApp.listen(PORT, () => {
             console.log(`Server started on port ${PORT}`)
         })
-    } catch (error) {
-        console.log(error)
+                        } catch (error) {
+       
+       
+       
+                                     console.log(error)
     }
 }
 
