@@ -5,7 +5,6 @@ import { ErrorMiddleware } from './middlewares/error.middleware'
 import { ensureDatabaseConnection } from './utils/db.util'
 import { getEnv } from './utils/env.util'
 import { RootRouter } from './routers/root.router'
-import { mainModule } from 'process'
 
 // Configuring application
 if (process.env.NODE_ENV === 'development') {
@@ -32,14 +31,21 @@ expressApp.use(ErrorMiddleware)
 
 // Ensure database connection and start server
 const main = async () => {
-    try {
+    try{
         await ensureDatabaseConnection()
         expressApp.listen(PORT, () => {
             console.log(`Server started on port ${PORT}`)
         })
-    } catch (error) {
-        console.log(error)
+
+
+
+
+    }catch(error){
+                                
+        
+                                                    console.log(error)
     }
+    
 }
 
 main()
