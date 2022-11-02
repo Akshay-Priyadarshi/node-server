@@ -5,9 +5,11 @@ import { ErrorMiddleware } from './middlewares/error.middleware'
 import { ensureDatabaseConnection } from './utils/db.util'
 import { getEnv } from './utils/env.util'
 import { RootRouter } from './routers/root.router'
+import { mainModule } from 'process'
 
-// Configuring environment variables
+// Configuring application
 if (process.env.NODE_ENV === 'development') {
+    // Development configuration
     dotenv.config()
 }
 
@@ -23,20 +25,21 @@ expressApp.use(express.urlencoded({ extended: true }))
 expressApp.use(JwtMiddleware)
 
 // Connecting to root router
-expressApp.use('/api', RootRouter)
+expressApp.use('/', RootRouter)
 
 // Error handler middleware
 expressApp.use(ErrorMiddleware)
 
 // Ensure database connection and start server
-// Ensure database connection and start server
-ensureDatabaseConnection()
-    .then(() => {
-        console.log('🚀 Database connection ensured')
-    })
-    .then(() => {
+const main = async () => {
+    try {
+        await ensureDatabaseConnection()
         expressApp.listen(PORT, () => {
-            console.log(`🚀 Server listening at http://localhost:${PORT}/`)
+            console.log(`Server started on port ${PORT}`)
         })
-    })
-    .catch((err) => console.error(err))
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+main()
