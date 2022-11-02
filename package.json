@@ -17,6 +17,7 @@
     },
     "scripts": {
         "postinstall": "husky install",
+        "format": "prettier --write .",
         "watch": "yarn tsc -w",
         "dev": "cross-env NODE_ENV=development nodemon --exec node dist/index.js",
         "build": "yarn tsc",
@@ -57,15 +58,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "yarn format"
         }
-    },
-    "lint-staged": {
-        "*.{ts}": [
-            "prettier --write"
-        ],
-        "*.{json,md}": [
-            "prettier --write"
-        ]
     }
 }

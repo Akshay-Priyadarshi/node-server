@@ -10,15 +10,15 @@ import { PaginationDto } from '../dtos/pagination.dto'
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
 export const getPaginationDataFromQuery = (
-	query: Query
+    query: Query
 ): PaginationDto | undefined => {
-	if (lodash.isEmpty(query)) {
-		return undefined
-	}
-	const paginationData: PaginationDto = {
-		page: Number(query.page),
-		limit: Number(query.limit),
-		count: Number(query.count),
-	}
-	return paginationData
+    if (lodash.isEmpty(query)) {
+        return undefined
+    }
+    const paginationData: PaginationDto = {
+        page: Number(query.page),
+        limit: Number(query.limit),
+        count: Number(query.count)
+    }
+    return paginationData
 }

@@ -5,8 +5,8 @@
  * @author Akshay Priyadarshi <akshayp1904@outlook.com>
  */
 export function getEnv(name: string): string | undefined {
-	if (process.env[name] === undefined) {
-		throw new Error(`${name} is not provided as environment variable`)
-	}
-	return process.env[name]
+    if (process.env[name] === undefined) {
+        throw new Error(`${name} is not provided as environment variable`)
+    }
+    return process.env[name]
 }

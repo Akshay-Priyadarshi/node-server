@@ -8,10 +8,10 @@ import { hashSync, compareSync } from 'bcrypt'
  * @author Akshay Priyadarshi <akshayp1904@outlook.com>
  */
 export function verifyPassword(
-	plainTextPassword: string,
-	encryptedPassword: string
+    plainTextPassword: string,
+    encryptedPassword: string
 ): boolean {
-	return compareSync(plainTextPassword, encryptedPassword) ? true : false
+    return compareSync(plainTextPassword, encryptedPassword) ? true : false
 }
 
 /**
@@ -21,6 +21,6 @@ export function verifyPassword(
  * @author Akshay Priyadarshi <akshayp1904@outlook.com>
  */
 export function encryptPassword(plainTextPassword: string): string {
-	const encryptedPassword = hashSync(plainTextPassword, 10)
-	return encryptedPassword
+    const encryptedPassword = hashSync(plainTextPassword, 10)
+    return encryptedPassword
 }

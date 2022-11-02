@@ -1,10 +1,10 @@
 import {
-  ErrorFormatter,
-  ValidationError,
-  validationResult,
-} from "express-validator";
-import { Request } from "express";
-import { ClientError, ClientErrorContext } from "../responses/error.response";
+    ErrorFormatter,
+    ValidationError,
+    validationResult
+} from 'express-validator'
+import { Request } from 'express'
+import { ClientError, ClientErrorContext } from '../responses/error.response'
 
 /**
  * @name getClientErrors
@@ -14,12 +14,12 @@ import { ClientError, ClientErrorContext } from "../responses/error.response";
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
 export const getClientErrors = (req: Request): ClientError[] => {
-  const result = validationResult(req).formatWith(clientErrorFormatter);
-  if (result.isEmpty()) {
-    return [];
-  }
-  return result.array();
-};
+    const result = validationResult(req).formatWith(clientErrorFormatter)
+    if (result.isEmpty()) {
+        return []
+    }
+    return result.array()
+}
 
 /**
  * @name clientErrorFormatter
@@ -29,12 +29,12 @@ export const getClientErrors = (req: Request): ClientError[] => {
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
 export const clientErrorFormatter: ErrorFormatter<ClientError> = (
-  err: ValidationError
+    err: ValidationError
 ): ClientError => {
-  const clientError = new ClientError({
-    message: err.msg,
-    context: err.location as ClientErrorContext,
-    path: err.param,
-  });
-  return clientError;
-};
+    const clientError = new ClientError({
+        message: err.msg,
+        context: err.location as ClientErrorContext,
+        path: err.param
+    })
+    return clientError
+}

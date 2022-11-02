@@ -9,9 +9,9 @@ import { getEnv } from './env.util'
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
 export const getReqBaseUrl = (req: Request): string => {
-	const reqUrl = req.baseUrl
-	const reqBaseUrl = `${getBaseUrl(req)}${reqUrl}`
-	return reqBaseUrl
+    const reqUrl = req.baseUrl
+    const reqBaseUrl = `${getBaseUrl(req)}${reqUrl}`
+    return reqBaseUrl
 }
 
 /**
@@ -22,12 +22,12 @@ export const getReqBaseUrl = (req: Request): string => {
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
 export const getBaseUrl = (req: Request): string => {
-	const isDev = process.env.NODE_ENV === 'development'
-	const PORT = getEnv('PORT')
-	const hostname = isDev ? `${req.hostname}:${PORT}` : `${req.hostname}`
-	const protocol = isDev ? 'http' : 'https'
-	const baseUrl = `${protocol}://${hostname}`
-	return baseUrl
+    const isDev = process.env.NODE_ENV === 'development'
+    const PORT = getEnv('PORT')
+    const hostname = isDev ? `${req.hostname}:${PORT}` : `${req.hostname}`
+    const protocol = isDev ? 'http' : 'https'
+    const baseUrl = `${protocol}://${hostname}`
+    return baseUrl
 }
 
 /**
@@ -39,9 +39,11 @@ export const getBaseUrl = (req: Request): string => {
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
 export const getUserVerifyRedirectUrl = (
-	req: Request,
-	token: string
+    req: Request,
+    token: string
 ): string => {
-	const verifyUrl = `${getBaseUrl(req)}/api/users/verify-user-redirect/${token}`
-	return verifyUrl
+    const verifyUrl = `${getBaseUrl(
+        req
+    )}/api/users/verify-user-redirect/${token}`
+    return verifyUrl
 }
