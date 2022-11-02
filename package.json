@@ -58,7 +58,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn format"
+            "pre-commit": "prettier --write ."
         }
     }
 }
