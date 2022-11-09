@@ -6,7 +6,7 @@
  */
 export function getEnv(name: string): string | undefined {
     if (process.env[name] === undefined) {
-        throw new Error(`${name} is not provided as environment variable`)
+        throw new Error(`${name} is not provided as environment variable`);
     }
-    return process.env[name]
+    return process.env[name];
 }

@@ -1,4 +1,4 @@
-import { hashSync, compareSync } from 'bcrypt'
+import { hashSync, compareSync } from "bcrypt";
 
 /**
  * @param {string} plainTextPassword Password in plain text
@@ -7,11 +7,8 @@ import { hashSync, compareSync } from 'bcrypt'
  * @description Takes plain text password and encrypted password and compare whether the passwords match
  * @author Akshay Priyadarshi <akshayp1904@outlook.com>
  */
-export function verifyPassword(
-    plainTextPassword: string,
-    encryptedPassword: string
-): boolean {
-    return compareSync(plainTextPassword, encryptedPassword) ? true : false
+export function verifyPassword(plainTextPassword: string, encryptedPassword: string): boolean {
+    return compareSync(plainTextPassword, encryptedPassword) ? true : false;
 }
 
 /**
@@ -21,6 +18,6 @@ export function verifyPassword(
  * @author Akshay Priyadarshi <akshayp1904@outlook.com>
  */
 export function encryptPassword(plainTextPassword: string): string {
-    const encryptedPassword = hashSync(plainTextPassword, 10)
-    return encryptedPassword
+    const encryptedPassword = hashSync(plainTextPassword, 10);
+    return encryptedPassword;
 }

@@ -1,5 +1,5 @@
-import { IProfile } from '../database/profile.schema'
+import { IProfile } from "../database/profile.schema";
 
-export type CreateProfileDto = IProfile
+export type CreateProfileDto = IProfile;
 
-export type UpdateProfileDto = Partial<CreateProfileDto>
+export type UpdateProfileDto = Partial<CreateProfileDto>;

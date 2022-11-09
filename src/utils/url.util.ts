@@ -1,5 +1,5 @@
-import { Request } from 'express'
-import { getEnv } from './env.util'
+import { Request } from "express";
+import { getEnv } from "./env.util";
 
 /**
  * @name getReqBaseUrl
@@ -9,10 +9,10 @@ import { getEnv } from './env.util'
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
 export const getReqBaseUrl = (req: Request): string => {
-    const reqUrl = req.baseUrl
-    const reqBaseUrl = `${getBaseUrl(req)}${reqUrl}`
-    return reqBaseUrl
-}
+    const reqUrl = req.baseUrl;
+    const reqBaseUrl = `${getBaseUrl(req)}${reqUrl}`;
+    return reqBaseUrl;
+};
 
 /**
  * @name getBaseUrl
@@ -22,13 +22,13 @@ export const getReqBaseUrl = (req: Request): string => {
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
 export const getBaseUrl = (req: Request): string => {
-    const isDev = process.env.NODE_ENV === 'development'
-    const PORT = getEnv('PORT')
-    const hostname = isDev ? `${req.hostname}:${PORT}` : `${req.hostname}`
-    const protocol = isDev ? 'http' : 'https'
-    const baseUrl = `${protocol}://${hostname}`
-    return baseUrl
-}
+    const isDev = process.env.NODE_ENV === "development";
+    const PORT = getEnv("PORT");
+    const hostname = isDev ? `${req.hostname}:${PORT}` : `${req.hostname}`;
+    const protocol = isDev ? "http" : "https";
+    const baseUrl = `${protocol}://${hostname}`;
+    return baseUrl;
+};
 
 /**
  * @name getUserVerifyRedirectUrl
@@ -38,12 +38,7 @@ export const getBaseUrl = (req: Request): string => {
  * @description Returns user verify redirect URL from express request & signed JWT token
  * @author Akshay Priyadarshi <https://github.com/Akshay-Priyadarshi>
  */
-export const getUserVerifyRedirectUrl = (
-    req: Request,
-    token: string
-): string => {
-    const verifyUrl = `${getBaseUrl(
-        req
-    )}/api/users/verify-user-redirect/${token}`
-    return verifyUrl
-}
+export const getUserVerifyRedirectUrl = (req: Request, token: string): string => {
+    const verifyUrl = `${getBaseUrl(req)}/api/users/verify-user-redirect/${token}`;
+    return verifyUrl;
+};

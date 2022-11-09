@@ -1,26 +1,24 @@
-import { NextFunction, Request, Response } from 'express'
-import { MatchedDataOptions, ValidationChain } from 'express-validator'
-import { getClientErrors } from '../utils/error.util'
-import { sanitisedData } from '../utils/validator.util'
+import { NextFunction, Request, Response } from "express";
+import { MatchedDataOptions, ValidationChain } from "express-validator";
+import { getClientErrors } from "../utils/error.util";
+import { sanitisedData } from "../utils/validator.util";
 
-export function ValidationResultMiddleware(
-    sanitiseOptions: Partial<MatchedDataOptions> = { onlyValidData: true }
-) {
+export function ValidationResultMiddleware(sanitiseOptions: Partial<MatchedDataOptions> = { onlyValidData: true }) {
     return (req: Request, res: Response, next: NextFunction) => {
         try {
-            const errors = getClientErrors(req)
+            const errors = getClientErrors(req);
             if (errors.length > 0) {
-                next(errors)
+                next(errors);
             } else {
-                sanitisedData(req, sanitiseOptions)
-                next()
+                sanitisedData(req, sanitiseOptions);
+                next();
             }
         } catch (err) {
-            next(err)
+            next(err);
         }
-    }
+    };
 }
 
 export function ValidationMiddleware(validationMiddlewares: ValidationChain[]) {
-    return [...validationMiddlewares, ValidationResultMiddleware()]
+    return [...validationMiddlewares, ValidationResultMiddleware()];
 }
